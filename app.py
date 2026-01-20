@@ -289,7 +289,30 @@ def process_to_pairs(raw_data):
 # ==========================================
 # 6. MAIN UI
 # ==========================================
+
 def main():
+    # --- AUTHENTICATION GATEKEEPER ---
+    if "authenticated" not in st.session_state:
+        st.session_state["authenticated"] = False
+
+    if not st.session_state["authenticated"]:
+        # Show a simple login form
+        st.title("🔒 Login Required")
+        password = st.text_input("Enter Password", type="password")
+        
+        if st.button("Login"):
+            try:
+                # Check against the secret
+                if password == st.secrets["APP_PASSWORD"]:
+                    st.session_state["authenticated"] = True
+                    st.rerun() # Reload the app with access
+                else:
+                    st.error("❌ Incorrect Password")
+            except:
+                st.error("Secrets not configured correctly.")
+        
+        st.stop() # CRITICAL: Stops the rest of the app from running!
+    
     
     # --- HEADER ---
     c1, c2 = st.columns([1, 6])
