@@ -305,7 +305,7 @@ def main():
     
     # --- SIDEBAR ---
     st.sidebar.markdown("### ⚙️ Dashboard Config")
-    st.sidebar.info("Select the date range for analysis.")
+    st.sidebar.info("Select the date range for analysis. Kindly select a range of maximum 7 days.")
     
     try:
         bot_id = st.secrets["BOT_ID"]
