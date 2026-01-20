@@ -36,7 +36,7 @@ st.markdown("""
     section[data-testid="stSidebar"] h1, 
     section[data-testid="stSidebar"] label, 
     section[data-testid="stSidebar"] span {
-        color: #e2e8f0 !important; 
+        color: #FFFFFF !important; 
     }
 
     /* 3. Metric Cards */
